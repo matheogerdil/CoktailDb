@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cocktail Detail - The Art of Mixology</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecb613",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#1a160d",
+                        "surface-dark": "#2a2416",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(42, 36, 22, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 182, 19, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="relative flex min-h-screen flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-primary/10 bg-background-dark/80 backdrop-blur-md px-6 py-4 md:px-20 lg:px-40">
+<div class="flex items-center gap-4">
+<div class="text-primary">
+<span class="material-symbols-outlined text-3xl">local_bar</span>
+</div>
+<h2 class="text-xl font-extrabold tracking-tight text-slate-100">Mixology<span class="text-primary">Vault</span></h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-dark text-primary border border-primary/20 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="flex h-10 w-10 items-center justify-center rounded-lg bg-surface-dark text-primary border border-primary/20 hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary overflow-hidden">
+<img class="h-full w-full object-cover" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQz-aJcX2aMPyg-3YEXIboMSM38KXt3cJZrzhL274YuLYwkalRe7ioUN-95E1V3ynKMqESdCea234I0YOHQlLGR5y-NHFhUGE2xpuGfAfO-vgZyQSD6voc99FrR_76iyExrAIdifTK9-i7X8o47RJF3hce-Cz34LtncefdDN-O_8oMc11jJUPELo3aABrAB8RRbQfpAOCosjvKKeIsjOwfqqSv4uTly4l1S7lZSbkdAvf1Knl-KhtPM7xi0HrybfHwb7y-3UD22Wwk"/>
+</div>
+</div>
+</header>
+<main class="flex-1 px-6 py-8 md:px-20 lg:px-40">
+<div class="mx-auto max-w-[1000px]">
+<!-- Hero Section -->
+<div class="group relative mb-10 overflow-hidden rounded-xl bg-surface-dark min-h-[450px] flex flex-col justify-end p-8 border border-primary/10">
+<div class="absolute inset-0 z-0">
+<img class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of an Old Fashioned cocktail with orange peel" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKOxGYCXCtTJSd5LfwEXQbr9DM1J8VAOFgREHq0zQcM5ar2PUPT4twxzjKfbDEgCB1ryw0V1_-RKPLhVpcapVNiSqSbyvkTge6KCpW8qkD1Uw7Sps6SY5vFBfOgmRwQ0kHUwbIVsrcqBzpNHXk-6RG-Mah-37IZjZKNz7tzDXjVfDugB7KTWkf70HdZdH6U1UYtDKgAwZxPP0NgSOuOG7azA-49KgdJOGh3Z-cANqCNF9YiCbMSfnja-RL9pPgw2GxE3y_v84VrRxi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent"></div>
+</div>
+<div class="relative z-10 space-y-4">
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-wider text-background-dark">Classic Series</span>
+<span class="rounded-full bg-surface-dark/80 backdrop-blur-md border border-primary/30 px-4 py-1 text-xs font-bold text-primary">IBA Official</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-black text-white tracking-tighter">Old Fashioned</h1>
+<p class="text-lg md:text-xl text-primary font-medium opacity-90">Strong, Sweet, &amp; Timeless</p>
+<div class="flex flex-wrap gap-6 pt-4 border-t border-white/10 mt-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="text-sm font-semibold">5 mins</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">local_bar</span>
+<span class="text-sm font-semibold">Rocks Glass</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<span class="text-sm font-semibold">Intermediate</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+<!-- Left Column: Ingredients -->
+<div class="lg:col-span-5 space-y-8">
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<h2 class="text-2xl font-bold tracking-tight text-white">Ingredients</h2>
+</div>
+<div class="glass-card rounded-xl p-6 space-y-4">
+<div class="flex justify-between items-center border-b border-primary/10 pb-3">
+<span class="text-slate-300">Bourbon or Rye Whiskey</span>
+<span class="font-bold text-primary">60ml / 2oz</span>
+</div>
+<div class="flex justify-between items-center border-b border-primary/10 pb-3">
+<span class="text-slate-300">Simple Syrup / Sugar Cube</span>
+<span class="font-bold text-primary">10ml / 1 cube</span>
+</div>
+<div class="flex justify-between items-center border-b border-primary/10 pb-3">
+<span class="text-slate-300">Angostura Bitters</span>
+<span class="font-bold text-primary">2 dashes</span>
+</div>
+<div class="flex justify-between items-center border-b border-primary/10 pb-3">
+<span class="text-slate-300">Water</span>
+<span class="font-bold text-primary">few drops</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-slate-300">Orange Peel &amp; Cherry</span>
+<span class="font-bold text-primary">Garnish</span>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<h2 class="text-2xl font-bold tracking-tight text-white">Glassware</h2>
+</div>
+<div class="glass-card rounded-xl p-6 flex items-center gap-6">
+<div class="h-16 w-16 flex items-center justify-center bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-4xl">wine_bar</span>
+</div>
+<div>
+<h3 class="font-bold text-white">Rocks Glass</h3>
+<p class="text-sm text-slate-400">Lowball or Old Fashioned glass</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Preparation -->
+<div class="lg:col-span-7 space-y-8">
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="h-8 w-1 bg-primary rounded-full"></div>
+<h2 class="text-2xl font-bold tracking-tight text-white">Preparation</h2>
+</div>
+<div class="space-y-6">
+<div class="flex gap-6 group">
+<div class="flex-none w-10 h-10 rounded-full bg-surface-dark border border-primary/30 text-primary flex items-center justify-center font-black transition-colors group-hover:bg-primary group-hover:text-background-dark">1</div>
+<div class="pt-1">
+<h4 class="text-lg font-bold text-white mb-2">Muddle the base</h4>
+<p class="text-slate-400 leading-relaxed">Place the sugar cube in an Old Fashioned glass. Add two dashes of Angostura bitters and a few drops of water. Muddle until the sugar is nearly dissolved.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-none w-10 h-10 rounded-full bg-surface-dark border border-primary/30 text-primary flex items-center justify-center font-black transition-colors group-hover:bg-primary group-hover:text-background-dark">2</div>
+<div class="pt-1">
+<h4 class="text-lg font-bold text-white mb-2">Add Whiskey &amp; Ice</h4>
+<p class="text-slate-400 leading-relaxed">Fill the glass with large ice cubes (or one large sphere). Pour the whiskey over the ice and muddled base.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-none w-10 h-10 rounded-full bg-surface-dark border border-primary/30 text-primary flex items-center justify-center font-black transition-colors group-hover:bg-primary group-hover:text-background-dark">3</div>
+<div class="pt-1">
+<h4 class="text-lg font-bold text-white mb-2">Stir Gently</h4>
+<p class="text-slate-400 leading-relaxed">Stir the cocktail gently for 20-30 seconds to dilute and chill the drink perfectly without introducing air.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="flex-none w-10 h-10 rounded-full bg-surface-dark border border-primary/30 text-primary flex items-center justify-center font-black transition-colors group-hover:bg-primary group-hover:text-background-dark">4</div>
+<div class="pt-1">
+<h4 class="text-lg font-bold text-white mb-2">Garnish &amp; Serve</h4>
+<p class="text-slate-400 leading-relaxed">Express the oils of an orange peel over the glass, rub the rim, and drop it in. Add a cocktail cherry if desired. Enjoy slowly.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="pt-4">
+<button class="w-full bg-primary hover:bg-primary/90 text-background-dark font-black py-4 rounded-xl flex items-center justify-center gap-2 transition-transform active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">play_circle</span>
+                                    Watch Video Tutorial
+                                </button>
+</section>
+</div>
+</div>
+<!-- Tags Section -->
+<div class="mt-16 pt-8 border-t border-primary/10">
+<div class="flex flex-wrap gap-3">
+<div class="flex h-10 items-center justify-center gap-x-2 rounded-lg bg-surface-dark px-5 border border-primary/10 hover:border-primary/40 transition-colors">
+<p class="text-slate-300 text-sm font-medium">Spirit-Forward</p>
+</div>
+<div class="flex h-10 items-center justify-center gap-x-2 rounded-lg bg-surface-dark px-5 border border-primary/10 hover:border-primary/40 transition-colors">
+<p class="text-slate-300 text-sm font-medium">Aromatic</p>
+</div>
+<div class="flex h-10 items-center justify-center gap-x-2 rounded-lg bg-surface-dark px-5 border border-primary/10 hover:border-primary/40 transition-colors">
+<p class="text-slate-300 text-sm font-medium">Stirred</p>
+</div>
+<div class="flex h-10 items-center justify-center gap-x-2 rounded-lg bg-surface-dark px-5 border border-primary/10 hover:border-primary/40 transition-colors">
+<p class="text-slate-300 text-sm font-medium">Whiskey-Based</p>
+</div>
+<div class="flex h-10 items-center justify-center gap-x-2 rounded-lg bg-surface-dark px-5 border border-primary/10 hover:border-primary/40 transition-colors">
+<p class="text-slate-300 text-sm font-medium">Classic</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto border-t border-primary/10 bg-surface-dark/30 py-8 px-6 text-center">
+<p class="text-slate-500 text-sm font-medium">Crafted with passion by MixologyVault © 2024</p>
+<div class="mt-4 flex justify-center gap-6">
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-primary/40 hover:text-primary cursor-pointer transition-colors">alternate_email</span>
+</div>
+</footer>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ingredient Inventory - Cocktail Bar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecb613",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#1a160d",
+                        "surface-dark": "#2a2416",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(42, 36, 22, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 182, 19, 0.1);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 px-6 md:px-20 py-4 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<a href="index.html" class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">liquor</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold tracking-tight">MixologyPro</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="index.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="explorer.html">Cocktails</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="inventory.html">Ingredients</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold" href="favorites.html">Favorites</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-primary/20">
+<div class="text-primary bg-primary/10 flex items-center justify-center px-3">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input w-full bg-primary/5 dark:bg-primary/5 border-none focus:ring-0 text-sm font-normal placeholder:text-slate-500" placeholder="Search ingredients..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-background-dark transition-all">
+<span class="material-symbols-outlined">person</span>
+</button>
+<div class="bg-primary/20 rounded-full size-10 flex items-center justify-center overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATHbjzSdzOEWJUngJrkaYtbGa8g_HxnhEHJSRxBTF3hv90vJ5YxQzM3ubZYEZfn5XBKwvD2zTZs1OSGQvCGxSm6Z91Y0hFJAAFTEQ8K8nNW5S1TVC-wVAyNwkxA-2ElSq82ctDn68yvDzdPHqw3j-TtMG7HwjROdpFxRTlgOyHS3l7ZxBbKSAk_xwuFpkgqbHg8UfjHhEwmatZjP9qy850CNw6nTZQUzXFw3ifR8MoB6qMETHh1ilTzVmjNSswAUgLs_uKefNY_007"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 flex-col md:flex-row">
+<!-- Sidebar Nav -->
+<aside class="w-full md:w-64 border-r border-primary/10 p-4 flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">explore</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Explorer</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary text-background-dark shadow-lg shadow-primary/20 cursor-pointer">
+<span class="material-symbols-outlined filled">kitchen</span>
+<p class="text-sm font-bold">My Bar</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">menu_book</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Saved Recipes</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">shopping_basket</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Shopping List</p>
+</div>
+<div class="mt-auto pt-4 border-t border-primary/10">
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">settings</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Settings</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-6 md:p-10 gap-8">
+<!-- Title & Actions -->
+<div class="flex flex-wrap items-end justify-between gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary mb-1">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<a class="text-xs font-bold uppercase tracking-wider hover:underline" href="explorer.html">Back to Explorer</a>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">Ingredient Inventory</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Manage your bar stock and discover recipes you can make.</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-primary text-background-dark rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+<span>Add Ingredient</span>
+</button>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-background-dark text-sm font-bold whitespace-nowrap">All (42)</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Spirits</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Liqueurs</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Mixers</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Fresh &amp; Fruits</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Bitters</button>
+</div>
+<!-- Inventory Grid -->
+<!-- Cocktail selector and ingredient editor -->
+<div class="space-y-6">
+    <div class="flex items-center gap-4">
+        <label class="text-sm text-slate-400">Choose a cocktail</label>
+        <select id="cocktailSelect" class="bg-surface-dark text-slate-100 rounded-lg px-3 py-2">
+            <option value="">-- Select a cocktail --</option>
+        </select>
+        <div class="ml-auto flex items-center gap-2">
+            <label class="text-sm text-slate-400">Portions</label>
+            <input id="servingsInput" type="number" min="0.25" step="0.25" value="1" class="w-20 bg-surface-dark text-slate-100 rounded-lg px-2 py-1" />
+        </div>
+    </div>
+
+    <div id="selectedCocktailInfo" class="hidden">
+        <h2 id="cocktailTitle" class="text-2xl font-bold text-slate-100 mb-2"></h2>
+        <div id="ingredientsEditor" class="space-y-3 bg-surface-dark p-4 rounded-xl border border-primary/10">
+            <!-- Ingredient rows populated by JS -->
+        </div>
+    </div>
+</div>
+<!-- Cocktail Results (shown when clicking on ingredient) -->
+<div id="cocktailContainer" class="mt-12" style="display: none;">
+<div class="flex items-center gap-4 mb-6">
+<button onclick="backToInventory()" class="flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 text-primary rounded-lg hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+Back to Inventory
+</button>
+<h2 class="text-2xl font-bold text-slate-100">Cocktails with this ingredient</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Cocktails will be populated by JS -->
+</div>
+</div>
+</main>
+</div>
+</div>
+<script src="script.js"></script>
+</body></html>

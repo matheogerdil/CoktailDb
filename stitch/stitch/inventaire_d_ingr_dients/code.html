@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ingredient Inventory - Cocktail Bar</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ecb613",
+              "background-light": "#f8f8f6",
+              "background-dark": "#221d10",
+            },
+            fontFamily: {
+              "display": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-primary/20 px-6 md:px-20 py-4 bg-background-light dark:bg-background-dark/95 backdrop-blur-sm sticky top-0 z-50">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">liquor</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-bold leading-tight tracking-tight">Cocktail Bar</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold" href="#">Explorer</a>
+<a class="text-primary text-sm font-semibold" href="#">My Bar</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold" href="#">Favorites</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end gap-4">
+<label class="hidden sm:flex flex-col min-w-40 h-10 max-w-64">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full overflow-hidden border border-primary/20">
+<div class="text-primary bg-primary/10 flex items-center justify-center px-3">
+<span class="material-symbols-outlined text-xl">search</span>
+</div>
+<input class="form-input w-full bg-primary/5 dark:bg-primary/5 border-none focus:ring-0 text-sm font-normal placeholder:text-slate-500" placeholder="Search ingredients..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center rounded-lg h-10 w-10 bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-background-dark transition-all">
+<span class="material-symbols-outlined">person</span>
+</button>
+<div class="bg-primary/20 rounded-full size-10 flex items-center justify-center overflow-hidden border border-primary/30">
+<img class="w-full h-full object-cover" data-alt="User profile avatar portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATHbjzSdzOEWJUngJrkaYtbGa8g_HxnhEHJSRxBTF3hv90vJ5YxQzM3ubZYEZfn5XBKwvD2zTZs1OSGQvCGxSm6Z91Y0hFJAAFTEQ8K8nNW5S1TVC-wVAyNwkxA-2ElSq82ctDn68yvDzdPHqw3j-TtMG7HwjROdpFxRTlgOyHS3l7ZxBbKSAk_xwuFpkgqbHg8UfjHhEwmatZjP9qy850CNw6nTZQUzXFw3ifR8MoB6qMETHh1ilTzVmjNSswAUgLs_uKefNY_007"/>
+</div>
+</div>
+</header>
+<div class="flex flex-1 flex-col md:flex-row">
+<!-- Sidebar Nav -->
+<aside class="w-full md:w-64 border-r border-primary/10 p-4 flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">explore</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Explorer</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary text-background-dark shadow-lg shadow-primary/20 cursor-pointer">
+<span class="material-symbols-outlined filled">kitchen</span>
+<p class="text-sm font-bold">My Bar</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">menu_book</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Saved Recipes</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">shopping_basket</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Shopping List</p>
+</div>
+<div class="mt-auto pt-4 border-t border-primary/10">
+<div class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-primary/5 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-slate-500 group-hover:text-primary">settings</span>
+<p class="text-slate-700 dark:text-slate-300 text-sm font-semibold">Settings</p>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-6 md:p-10 gap-8">
+<!-- Title & Actions -->
+<div class="flex flex-wrap items-end justify-between gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 text-primary mb-1">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+<a class="text-xs font-bold uppercase tracking-wider hover:underline" href="#">Back to Explorer</a>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">Ingredient Inventory</h1>
+<p class="text-slate-500 dark:text-slate-400 text-lg">Manage your bar stock and discover recipes you can make.</p>
+</div>
+<button class="flex items-center gap-2 px-6 py-3 bg-primary text-background-dark rounded-xl font-bold hover:scale-105 transition-transform shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">add</span>
+<span>Add Ingredient</span>
+</button>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
+<button class="px-5 py-2 rounded-full bg-primary text-background-dark text-sm font-bold whitespace-nowrap">All (42)</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Spirits</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Liqueurs</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Mixers</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Fresh &amp; Fruits</button>
+<button class="px-5 py-2 rounded-full bg-primary/10 border border-primary/20 text-slate-700 dark:text-slate-300 hover:border-primary transition-colors text-sm font-semibold whitespace-nowrap">Bitters</button>
+</div>
+<!-- Inventory Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+<!-- Item 1 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clear bottle of premium dry gin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV80HZPbOHzJQKcGA8B6JKwdilQa-mLjfmIztCUsTRNTnDlMf2ES07Qasn5XXiDCyDQ8iZ69kgJg64o6-Ez503VtJ0ZYOTnPtGvrOEeOjKZdcF_i2qm2EzKYzdn-9dJkdRMMO4wKROdGL2JWWcXYtiwbUzTc4-Kagu3UqdrfWWY-uENadrWYq01yTJ5APLN0sCdFlQISDpL2qz-SJzf3S370hYYVE3wCih0qgBpSeTfO8AZ4cnAIfxv1ywWSSPjMm7oJ8accOSW1uI"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Gin</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Spirit • 750ml</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>12 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Classic vodka bottle with minimalist design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJdTymv1YoOCyT_Ig59AFb9U78nWL6egigAxPeGGRmTaJqw-06yjsgFnm_j4EzbQ8xsUBNVTUeUua7ND2KOj5wuoWE_R0iy8eXO_uaopXWLMg7Tx3V_2AhXEpb3y4OnY0OMQyQMYE01bFH0hOGMMB7SRz5b0PZhABWYZnsDmQkfEUT25fd7cLs7CKvtV2kDoEFaHJjBhN68Lu5u3oSsXzYjiG3q_EgRpjsgL_0SW-usXdoqCLnTxaFRBxW-JHM-JDElAiV5SxqLMgJ"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Vodka</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Spirit • 1L</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>8 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Fresh cut limes on a dark surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqg-vV_sf-79ITiFkwDRqHgB2lp0bQn26Tc0VXDhc-jNEAZG8CUDSJct9jKDSX8Y1KrNOGUrcbFmYOVSxp41RvWrgyRlqvU4NHyOHo1mDDfk6PHihyOU65Vhf0OB92PdYwvoV8fEbtnBD0at3fLQL_iOgk9CGUHOobJB5FucCsEzn1hvoUUvXtXaXrT1SAHPjJRD0Xzta02tw5wKjFN5ayBsmnMuGBLJRkxmMrE48DmN1fvLJhn6EfBwvz0v1bvd57iArqvPjFHk2t"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Lime</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Fresh • 4 items</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>24 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vibrant green mint leaves bouquet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCtc3umlhDWVJJqm-f15H4Noom8NrgDcnhEC5CMVBmyGyYIhh9hMA0N2pBXY-XCBv5NFrVvWaIM3sIxTHfKqP8vP34S_2e4ZnKI_UzyNRltHY5M8jbxi8qRDQ_LhPjHwqVNcCct9PcXCp6p40yjuSohg6kEZcinfJbUo-D3JszH6uBCbfXQzvHoQjRxoB5N35fojsma26HIYagEmBupcrll1yyIICKZk4FNrT5kmZwsymjJkakMeq5KSedJbrybSEsi8faIDrELp87"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Mint</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Herb • 1 bunch</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>6 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Syrup in a glass jar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmghmg10wWnweeveIHkv01-p0fyH2JOe369UAki99BsrBXz_bpW6TvBwrZizeUcIKzrmf-44GXYkiZ2U9LxWeQu9GzEs6qiYfwU3X7OAjImVSrC9ubQ2jwGfez7M362y1VX2hZSU0347jDhB3bVldbFzQQ0WW2r-wdRFL-1AihrSseE5p3K7BoZaS_j5VggzGKwi8uzeA0r8gFz9xZsoqlCqtk5iQVi-SnESmUxQyO1YMo8eEvlOKVMlJS0G5U90tm4kiyBQx4XfMk"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Simple Syrup</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Mixer • 500ml</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>18 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 6 (Out of Stock) -->
+<div class="group relative flex flex-col gap-3 p-4 bg-slate-900/5 dark:bg-slate-100/5 border border-slate-500/10 rounded-2xl grayscale transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center opacity-50">
+<img class="w-full h-full object-cover" data-alt="Aromatic bitters bottle with dash cap" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzQhLhFAM_pda9nc5ccqWhuhAMBT4Ur7ozNu-28TjL1JLRtzGZU4nGTs78rJgYU__BujykgAC5DUWO5sSlmWjCIDxSGxvhtFZ1ooEdjuTXoRBwQpRRMJLUxcbl17Ez13R0c2adCHhJGiv2H8YHzZ7EA8PLr-hTco86zLKbYHkEBcrEc7Gfqcwj7K0xSOzXALDHsDc3aZx6_euHJkGR4Je4DuEHVw4K-IOv_TGfSrHcX0Vn207TOrN4ZnAU2nB0dbhp6goPhu-2gkar"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="bg-slate-900/80 text-white text-[10px] font-bold px-2 py-1 rounded">RESTOCK</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg text-slate-500">Angostura Bitters</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Bitters • Empty</p>
+</div>
+<div class="mt-2 text-slate-400 flex items-center gap-1 text-sm font-bold">
+<span>32 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Bourbon whiskey bottle with rich amber liquid" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUkuZ42IDBvP2g6pTumiKQ8Ll4l4Z_1Y0k_Dn-_c0YpvrlqZ1u1thDu1i27e3rGpM0psfsudd04dOoxIMIouL5ZCAd_kEIzm7nM0QYohVD6NtYNaqeXXW4S08Y-aOvOUA4Fwtm5SaBgyq27PpQPCNgDxhEtjE78OoM2L-5D-OjPvxYEgJZ7tKm7SU6dftQ5ISehg2ybDXbYEMgFa0BHzI--mn7zknetMfcwikkkdCXoQrVOLwFyTxCgimicok03xMtHSeqV8s4Nh9V"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Bourbon</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Spirit • 700ml</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>15 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="group relative flex flex-col gap-3 p-4 bg-primary/5 dark:bg-primary/[0.03] border border-primary/10 rounded-2xl hover:border-primary/50 transition-all cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-background-dark/50 flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Sweet red vermouth bottle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJcr6HRz4P2P1nOS9DnBsk1s0cmcftlbsAAAqYUPm3IuEiEYzENCEOei7zA8V6RDK8Pntau0N_4GvuUIVBbD7y3lw6XuURN9gDwSRl87F-Oo4T1EHnFpUiRzUSHOkM-DbV_9EuwgEmpGMMdZH2T16s_qeCFJRHkayzck1oSO-yyGIcuuUPsRYxanXW_YwM5zqwXpa3fHbimgqOMsN7-AICOjuKpiltXWx1F4TR5A06t-0z2hGlibYvkoyP5vYnhKbRnpBPeYkyYSQS"/>
+<div class="absolute top-6 right-6 bg-primary text-background-dark rounded-full p-1 shadow-md">
+<span class="material-symbols-outlined text-sm filled">check</span>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg group-hover:text-primary transition-colors">Sweet Vermouth</h3>
+<p class="text-slate-500 text-xs font-medium uppercase tracking-tighter">Fortified • 375ml</p>
+</div>
+<div class="mt-2 text-primary flex items-center gap-1 text-sm font-bold">
+<span>9 Recipes</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</div>
+</div>
+<!-- Empty State / Add Suggestion Card -->
+<div class="group relative flex flex-col items-center justify-center gap-4 p-6 border-2 border-dashed border-primary/20 rounded-2xl hover:bg-primary/5 transition-all cursor-pointer">
+<div class="size-16 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">add_circle</span>
+</div>
+<div class="text-center">
+<p class="font-bold text-slate-700 dark:text-slate-300">Missing something?</p>
+<p class="text-xs text-slate-500 mt-1">Add custom ingredient</p>
+</div>
+</div>
+</div>
+<!-- Recommended Cocktails (Contextual Section) -->
+<div class="mt-12 p-8 rounded-3xl bg-primary/10 border border-primary/20 relative overflow-hidden">
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex flex-col gap-3 max-w-xl">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined filled">magic_button</span>
+<span class="font-bold text-sm uppercase tracking-widest">Mixologist Insight</span>
+</div>
+<h2 class="text-3xl font-extrabold">Ready to shake?</h2>
+<p class="text-slate-400">Based on your current inventory, you have 100% of the ingredients for <span class="text-primary font-bold">5 classic cocktails</span>. Ready to browse them?</p>
+</div>
+<button class="px-8 py-4 bg-primary text-background-dark rounded-xl font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform whitespace-nowrap">
+                                View Possible Recipes
+                            </button>
+</div>
+<!-- Abstract Gradient Pattern -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -mr-20 -mt-20"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-primary/5 blur-[80px] rounded-full -ml-10 -mb-10"></div>
+</div>
+</main>
+</div>
+</div>
+</div>
+</body></html>

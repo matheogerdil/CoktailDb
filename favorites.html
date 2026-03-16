@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ecb613",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#1a160d",
+                        "surface-dark": "#2a2416",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(42, 36, 22, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 182, 19, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-primary/20 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-12 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between gap-8">
+<div class="flex items-center gap-10">
+<a href="index.html" class="flex items-center gap-3 text-primary">
+<span class="material-symbols-outlined text-3xl">liquor</span>
+<h2 class="text-slate-900 dark:text-slate-100 text-xl font-extrabold tracking-tight">MixologyPro</h2>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="index.html">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="explorer.html">Cocktails</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-semibold transition-colors" href="inventory.html">Ingredients</a>
+<a class="text-primary text-sm font-semibold border-b-2 border-primary pb-1" href="favorites.html">Favorites</a>
+</nav>
+</div>
+<div class="flex flex-1 justify-end items-center gap-6">
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-primary/20 transition-colors">notifications</button>
+<div class="h-10 w-10 rounded-full border-2 border-primary bg-center bg-cover" data-alt="User profile avatar portrait" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRDwcZCWNc93vkLNhIQAZWQnd-pZi97-gNHk4MqmjFMBrxcJFAdwQP42Xf9VQRm_ZAYUaO5RU9FMFwD-A_sMcD7tuuZHN_X26bN2GWiQLjIwFndzdX8gBpH5S-CwHGFnNOhUNKhoEB0oY0Bznkw89_xFYbz-yEO-LAPpUEm9iUMQ8ACzfhhDPyn-Wyy0sClWlc6oHG_TzJXMHO6Mrv_dWIuDHGpkrAi8C8wrInh4LhTa2ELXTYPWLgHISpQ0zWCB_mZmy-hOYE1aqs")'></div>
+</div>
+</div>
+</header>
+<main class="flex-1 flex max-w-7xl mx-auto w-full relative">
+<!-- Main Content Area -->
+<section class="flex-1 p-6 lg:p-10 overflow-x-hidden">
+<div class="mb-8">
+<h1 class="text-3xl font-extrabold text-slate-100 mb-2">My Favorite Cocktails</h1>
+<p class="text-slate-400">Your saved cocktails for quick access.</p>
+</div>
+<!-- Grid of Favorite Cocktail Cards -->
+<div id="cocktailGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Cards will be populated by JS -->
+</div>
+</section>
+</main>
+</div>
+<script src="script.js"></script>
+<script>
+    // Favorites page functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        loadFavoriteCocktails();
+    });
+</script>
+</body>
+</html>
