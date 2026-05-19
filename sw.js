@@ -40,12 +40,20 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Interception des requêtes réseau : Stratégie "Cache First"
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      // Retourne le fichier en cache s'il existe, sinon lance la requête réseau
-      return cachedResponse || fetch(event.request);
+      // Si le fichier est en cache, on le renvoie
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+
+      // Sinon, on le cherche sur le réseau, mais on attrape l'erreur si ça échoue (404 ou déconnexion)
+      return fetch(event.request).catch((err) => {
+        console.warn('Fichier introuvable ou réseau coupé pour :', event.request.url);
+        // On renvoie une réponse vide ou une erreur propre au lieu de faire crasher le SW
+        return new Response('Ressource indisponible', { status: 404, statusText: 'Not Found' });
+      });
     })
   );
 });
