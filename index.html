@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+  <title>Caisse Buvette</title>
+  
+  <!-- Fichiers locaux pour le mode hors-ligne -->
+  <link rel="stylesheet" href="css/framework7-bundle.min.css">
+  
+  <!-- === CONFIGURATION PWA === -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#007aff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  
+  <style>
+    /* Sécurisation de la zone basse pour les écrans type iPhone avec encoche */
+    .footer-total { 
+      background: #f8f8f8; 
+      border-top: 1px solid #e1e1e1; 
+      padding: 15px; 
+      padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+    }
+    .qty-btn { width: 40px; height: 40px; font-size: 20px; font-weight: bold; }
+    .qty-display { width: 30px; text-align: center; font-weight: bold; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="view view-main">
+      <div class="page" data-name="home">
+        
+        <!-- Barre de navigation haute -->
+        <div class="navbar">
+          <div class="navbar-bg"></div>
+          <div class="navbar-inner">
+            <div class="title">Buvette CS Bons-en-Chablais</div>
+            <div class="right">
+              <a href="#" class="link" id="btn-reset">
+                Vider
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zone d'encaissement fixée en bas -->
+        <div class="toolbar toolbar-bottom footer-total" style="height: auto;">
+          <div class="row width-100 align-items-center">
+            <div class="col-50">
+              <h2 style="margin: 0;">Total: <span id="total-price">0.00</span> CHF</h2>
+            </div>
+            <div class="col-50">
+              <button class="button button-fill button-large color-green" id="btn-encaisser">
+                Encaisser
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liste des produits -->
+        <div class="page-content">
+          <div class="list media-list" style="margin-top: 0;">
+            <ul id="product-list">
+              <!-- Rendu dynamique via JS -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/framework7-bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
