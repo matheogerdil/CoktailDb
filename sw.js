@@ -7,7 +7,9 @@ const ASSETS_TO_CACHE = [
   './css/framework7-bundle.min.css',
   './js/framework7-bundle.min.js',
   './js/app.js',
-  './manifest.json'
+  './manifest.json',
+  './icon-100.png',
+  './icon-50.png'
   // N'oublie pas d'ajouter './icon-192.png' et './icon-512.png' quand tu les auras créés
 ];
 
