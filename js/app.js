@@ -9,12 +9,17 @@ const $ = app.$;
 
 // Base de données locale des produits
 let products = [
-  { id: 1, name: 'Bière Pression', price: 3.00, qty: 0 },
+  { id: 1, name: 'Bière blonde Pression', price: 3.00, qty: 0 },
   { id: 2, name: 'Soda / Cola', price: 2.00, qty: 0 },
-  { id: 3, name: 'Eau Minérale', price: 1.00, qty: 0 },
-  { id: 4, name: 'Hot Dog / Diot', price: 5.00, qty: 0 },
-  { id: 5, name: 'Frites', price: 3.50, qty: 0 },
-  { id: 6, name: 'Café', price: 1.50, qty: 0 }
+  { id: 3, name: 'Eau Minérale', price: 2.00, qty: 0 },
+  { id: 4, name: 'Hot Dog ', price: 4.00, qty: 0 },
+  { id: 5, name: 'Frites', price: 2.50, qty: 0 },
+  { id: 6, name: 'frites saucisse', price: 3.50, qty: 0 },
+  { id: 7, name: 'biere verte', price: 2.50, qty: 0 },
+  { id: 8, name: 'pichet blonde', price: 12, qty: 0 },
+  { id: 9, name: 'pichet verte', price: 18, qty: 0 },
+  { id: 10, name: 'vin bouteille', price: 12, qty: 0 },
+  { id: 11, name: 'cerdon', price: 17, qty: 0 },
 ];
 
 // Moteur de rendu de la liste
