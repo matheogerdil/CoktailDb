@@ -15,7 +15,7 @@ let products = [
   { id: 4, name: 'Hot Dog ', price: 4.00, qty: 0 },
   { id: 5, name: 'Frites', price: 2.50, qty: 0 },
   { id: 6, name: 'frites saucisse', price: 3.50, qty: 0 },
-  { id: 7, name: 'biere verte', price: 2.50, qty: 0 },
+  { id: 7, name: 'biere verte', price: 4, qty: 0 },
   { id: 8, name: 'pichet blonde', price: 12, qty: 0 },
   { id: 9, name: 'pichet verte', price: 18, qty: 0 },
   { id: 10, name: 'vin bouteille', price: 12, qty: 0 },
